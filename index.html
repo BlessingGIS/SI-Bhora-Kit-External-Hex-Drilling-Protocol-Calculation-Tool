@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SI-Bhora Kit- External Hex</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Logo Image -->
+<div id="logoContainer">
+  <img src="SI_Logo.png" alt="Logo" id="logo">
+</div>
+<h1>External Hex Drilling Protocol Calculation Tool</h1>  
+<form id="inputForm">
+  <!-- Dropdown for Value 1 (Implant Diameter-Length Combination) -->
+  <label for="value1">Select Implant:</label><br>
+  <select id="value1" name="value1" required>
+    <option value="">--This Selection Automatically Determines Diameter and Length--</option>
+    <option value="IP-8.5">IP-8.5</option>
+    <option value="IP-10">IP-10</option>
+    <option value="IP-11.5">IP-11.5</option>
+    <option value="IP-13">IP-13</option>
+    <option value="IP-15">IP-15</option>
+    <option value="IBN-8.5">IBN-8.5</option>
+    <option value="IBN-10">IBN-10</option>
+    <option value="IBN-11.5">IBN-11.5</option>
+    <option value="IBN-13">IBN-13</option>
+    <option value="IBN-15">IBN-15</option>
+    <option value="IBT-8.5">IBT-8.5</option>
+    <option value="IBT-10">IBT-10</option>
+    <option value="IBT-11.5">IBT-11.5</option>
+    <option value="IBT-13">IBT-13</option>
+    <option value="IBT-15">IBT-15</option>
+    <option value="BAT-8.5">BAT-8.5</option>
+    <option value="BAT-10">BAT-10</option>
+    <option value="BAT-11.5">BAT-11.5</option>
+    <option value="BAT-13">BAT-13</option>
+    <option value="BAT-15">BAT-15</option>
+  </select><br><br>
+  <!-- Optional Checkbox for Dense Bone -->
+  <label for="DenseBone">Optional: Select Only if Bone is Dense</label>
+  <input type="checkbox" id="DenseBone" name="denseBone" value="dense"><br><br>
+
+  <input type="button" value="Show Drilling Protocol" onclick="processForm()">
+</form>  
+
+<div id="tableName" style="font-weight: bold; margin-top: 20px;"></div>
+
+<!-- Tables (Initially Hidden) -->
+<div id="tableContainer">
+    <!-- Table A -->
+    <table id="IP-8.5 Regular Bone">
+      <tr>
+        <th>Step 1</th>
+        <th>Step 2</th>
+        <th>Step 3</th>
+        <th>Step 4</th>
+      </tr>
+      <tr>
+        <td>D-CP-BGN</td>
+        <td>D-20T-BG-6</td>
+        <td>D-20T-BG-8</td>
+        <td>Place Implant</td>
+      </tr>
+    </table>
+    <!-- Table A1 -->
+    <table id="IP-8.5 Dense Bone">
+      <tr>
+        <th>Step 1</th>
+        <th>Step 2</th>
+        <th>Step 3</th>
+        <th>Step 4</th>        
+        <th>Step 5</th>
+      </tr>
+      <tr>
+        <td>D-CP-BGN</td>
+        <td>D-20T-BG-6</td>
+        <td>D-20T-BG-8</td>
+        <td>D-30TP-BG</td>        
+        <td>Place Implant</td>
+      </tr>
+    </table>    
+    <!-- Table B -->
+    <table id="IP-10 Regular Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>Place Implant</td>
+        </tr>
+      </table>
+    <!-- Table B1 -->
+    <table id="IP-10 Dense Bone">
+      <tr>
+        <th>Step 1</th>
+        <th>Step 2</th>
+        <th>Step 3</th>
+        <th>Step 4</th>
+        <th>Step 5</th>
+        <th>Step 6</th>        
+        <th>Step 7</th>
+      </tr>
+      <tr>
+        <td>D-CP-BGN</td>
+        <td>D-20T-BG-6</td>
+        <td>D-20T-BG-8</td>
+        <td>D-20T-BG-9</td>
+        <td>D-20T-BG-10</td>
+        <td>D-30TP-BG</td>         
+        <td>Place Implant</td>
+      </tr>
+    </table>      
+      <!-- Table C -->
+      <table id="IP-11.5 Regular Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-20T-BG-11</td>
+          <td>Place Implant</td>
+        </tr>
+      </table>
+      <!-- Table C1 -->
+      <table id="IP-11.5 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>          
+          <th>Step 8</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-20T-BG-11</td>
+          <td>D-30TP-BG</td>            
+          <td>Place Implant</td>
+        </tr>
+      </table>      
+      <!-- Table D -->
+      <table id="IP-13 Regular Bone">
+            <tr>
+              <th>Step 1</th>
+              <th>Step 2</th>
+              <th>Step 3</th>
+              <th>Step 4</th>
+              <th>Step 5</th>
+              <th>Step 6</th>
+              <th>Step 7</th>
+              <th>Step 8</th>
+              <th>Step 9</th>
+            </tr>
+            <tr>
+              <td>D-CP-BGN</td>
+              <td>D-20T-BG-6</td>
+              <td>D-20T-BG-8</td>
+              <td>D-20T-BG-9</td>
+              <td>D-20T-BG-10</td>
+              <td>D-20T-BG-11</td>
+              <td>D-20T-BG-12</td>
+              <td>D-20T-BG-13</td>
+              <td>Place Implant</td>
+            </tr>
+      </table>
+      <!-- Table D1 -->
+      <table id="IP-13 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>
+          <th>Step 9</th>          
+          <th>Step 10</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-20T-BG-11</td>
+          <td>D-20T-BG-12</td>
+          <td>D-20T-BG-13</td>
+          <td>D-30TP-BG</td>            
+          <td>Place Implant</td>
+        </tr>
+  </table>      
+      <!-- Table E -->
+      <table id="IP-15 Regular Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>
+          <th>Step 9</th>
+          <th>Step 10</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-20T-BG-11</td>
+          <td>D-20T-BG-12</td>
+          <td>D-20T-BG-13</td>
+          <td>D-20T-BG-16</td>
+          <td>Place Implant</td>
+        </tr>
+      </table>
+      <!-- Table E1 -->
+      <table id="IP-10 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>
+          <th>Step 9</th>
+          <th>Step 10</th>          
+          <th>Step 11</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-20T-BG-11</td>
+          <td>D-20T-BG-12</td>
+          <td>D-20T-BG-13</td>
+          <td>D-20T-BG-16</td>
+          <td>D-30TP-BG</td>            
+          <td>Place Implant</td>
+        </tr>
+      </table>      
+      <!-- Table F -->
+      <table id="IBN-8.5 Regular Bone">
+            <tr>
+              <th>Step 1</th>
+              <th>Step 2</th>
+              <th>Step 3</th>
+              <th>Step 4</th>
+              <th>Step 5</th>
+
+            </tr>
+            <tr>
+              <td>D-CP-BGN</td>
+              <td>D-20T-BG-6</td>
+              <td>D-20T-BG-8</td>
+              <td>D-30TP-BG</td>
+              <td>Place Implant</td>
+            </tr>
+          </table>
+      <!-- Table F1 -->
+      <table id="IBN-8.5 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>                    
+          <th>Step 6</th>
+
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>          
+          <td>Place Implant</td>
+        </tr>
+      </table>          
+          <!-- Table G -->
+          <table id="IBN-10 Regular Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-30TP-BG</td>
+                <td>Place Implant</td>
+              </tr>
+            </table>
+          <!-- Table G1 -->
+          <table id="IBN-10 Dense Bone">
+            <tr>
+              <th>Step 1</th>
+              <th>Step 2</th>
+              <th>Step 3</th>
+              <th>Step 4</th>
+              <th>Step 5</th>
+              <th>Step 6</th>
+              <th>Step 7</th>              
+              <th>Step 8</th>
+            </tr>
+            <tr>
+              <td>D-CP-BGN</td>
+              <td>D-20T-BG-6</td>
+              <td>D-20T-BG-8</td>
+              <td>D-20T-BG-9</td>
+              <td>D-20T-BG-10</td>
+              <td>D-30TP-BG</td>
+              <td>D-33TP-BG</td>              
+              <td>Place Implant</td>
+            </tr>
+          </table>            
+            <!-- Table H -->
+            <table id="IBN-11.5 Regular Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-30TP-BG</td>
+                <td>Place Implant</td>
+              </tr>
+            </table>
+            <!-- Table H1 -->
+            <table id="IBN-11.5 Dense Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>                
+                <th>Step 9</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-30TP-BG</td>
+                <td>D-33TP-BG</td>                
+                <td>Place Implant</td>
+              </tr>
+            </table>            
+            <!-- Table I -->
+            <table id="IBN-13 Regular Bone">
+                  <tr>
+                    <th>Step 1</th>
+                    <th>Step 2</th>
+                    <th>Step 3</th>
+                    <th>Step 4</th>
+                    <th>Step 5</th>
+                    <th>Step 6</th>
+                    <th>Step 7</th>
+                    <th>Step 8</th>
+                    <th>Step 9</th>
+                    <th>Step 10</th>
+                  </tr>
+                  <tr>
+                    <td>D-CP-BGN</td>
+                    <td>D-20T-BG-6</td>
+                    <td>D-20T-BG-8</td>
+                    <td>D-20T-BG-9</td>
+                    <td>D-20T-BG-10</td>
+                    <td>D-20T-BG-11</td>
+                    <td>D-20T-BG-12</td>
+                    <td>D-20T-BG-13</td>
+                    <td>D-30TP-BG</td>
+                    <td>Place Implant</td>
+                  </tr>
+            </table>
+            <!-- Table I1 -->
+            <table id="IBN-13 Regular Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>
+                <th>Step 9</th>
+                <th>Step 10</th>                
+                <th>Step 11</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-20T-BG-12</td>
+                <td>D-20T-BG-13</td>
+                <td>D-30TP-BG</td>
+                <td>D-33TP-BG</td>                
+                <td>Place Implant</td>
+              </tr>
+        </table>            
+            <!-- Table J -->
+            <table id="IBN-15 Regular Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>
+                <th>Step 9</th>
+                <th>Step 10</th>
+                <th>Step 11</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-20T-BG-12</td>
+                <td>D-20T-BG-13</td>
+                <td>D-20T-BG-16</td>
+                <td>D-30TP-BG</td>
+                <td>Place Implant</td>
+              </tr>
+            </table>
+            <!-- Table J1 -->
+            <table id="IBN-15 Dense Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>
+                <th>Step 9</th>
+                <th>Step 10</th>
+                <th>Step 11</th>                
+                <th>Step 12</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-20T-BG-12</td>
+                <td>D-20T-BG-13</td>
+                <td>D-20T-BG-16</td>
+                <td>D-30TP-BG</td>
+                <td>D-33TP-BG</td>                
+                <td>Place Implant</td>
+              </tr>
+            </table>            
+      <!-- Table K -->
+      <table id="IBT-8.5 Regular Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>
+          <td>Place Implant</td>
+        </tr>
+      </table>
+      <!-- Table K1 -->
+      <table id="IBT-8.5 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th> 
+          <th>Counterbore(Optional to widen Apex)</th>
+          <th>Step 7</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>
+          <td>D-40TP-BG</td>
+          <td>D-CB35-BG</td>                    
+          <td>Place Implant</td>
+        </tr>
+      </table>      
+      <!-- Table L -->
+      <table id="IBT-10 Regular Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>Place Implant</td>
+          </tr>
+        </table>
+      <!-- Table L1 -->
+      <table id="IBT-10 Dense">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>
+          <th>Counterbore(Optional to widen Apex)</th>          
+          <th>Step 9</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>
+          <td>D-40TP-BG</td>
+          <td>D-CB35-BG</td>          
+          <td>Place Implant</td>
+        </tr>
+      </table>        
+        <!-- Table M -->
+        <table id="IBT-11.5 Regular Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>Place Implant</td>
+          </tr>
+        </table>
+        <!-- Table M1 -->
+        <table id="IBT-11.5 Dense">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Counterbore(Optional to widen Apex)</th>            
+            <th>Step 10</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>D-CB35-BG</td>            
+            <td>Place Implant</td>
+          </tr>
+        </table>        
+        <!-- Table N -->
+        <table id="IBT-13 Regular Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>
+                <th>Step 9</th>
+                <th>Step 10</th>
+                <th>Step 11</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-20T-BG-12</td>
+                <td>D-20T-BG-13</td>
+                <td>D-30TP-BG</td>
+                <td>D-33TP-BG</td>
+                <td>Place Implant</td>
+              </tr>
+        </table>
+        <!-- Table N1 -->
+        <table id="IBT-13 Dense Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>            
+            <th>Counterbore(Optional to widen Apex)</th>
+            <th>Step 12</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-20T-BG-12</td>
+            <td>D-20T-BG-13</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>D-CB35-BG</td>            
+            <td>Place Implant</td>
+          </tr>
+    </table>        
+        <!-- Table O -->
+        <table id="IBT-15 Regular Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+            <th>Step 12</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-20T-BG-12</td>
+            <td>D-20T-BG-13</td>
+            <td>D-20T-BG-16</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>Place Implant</td>
+          </tr>
+        </table>
+        <!-- Table O1 -->
+        <table id="IBT-15 Dense Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+            <th>Step 12</th>            
+            <th>Counterbore(Optional to widen Apex)</th>
+            <th>Step 13</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-20T-BG-12</td>
+            <td>D-20T-BG-13</td>
+            <td>D-20T-BG-16</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>D-CB35-BG</td>            
+            <td>Place Implant</td>
+          </tr>
+        </table>        
+      <!-- Table P -->
+      <table id="BAT-8.5 Regular Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>
+
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>
+          <td>D-35TP-BG</td>
+          <td>D-40TP-BG</td>
+          <td>Place Implant</td>
+        </tr>
+      </table>
+      <!-- Table P1 -->
+      <table id="BAT-8.5 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>          
+          <th>Counterbore(Optional to widen Apex)</th>
+          <th>Step 9</th>
+
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>
+          <td>D-35TP-BG</td>
+          <td>D-40TP-BG</td>
+          <td>D-45TP-BG</td>  
+          <td>D-CB40-BG</td>                  
+          <td>Place Implant</td>
+        </tr>
+      </table>      
+      <!-- Table Q -->
+      <table id="BAT-10 Regular Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-35TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>Place Implant</td>
+          </tr>
+        </table>
+      <!-- Table Q1 -->
+      <table id="BAT-10 Dense Bone">
+        <tr>
+          <th>Step 1</th>
+          <th>Step 2</th>
+          <th>Step 3</th>
+          <th>Step 4</th>
+          <th>Step 5</th>
+          <th>Step 6</th>
+          <th>Step 7</th>
+          <th>Step 8</th>
+          <th>Step 9</th>
+          <th>Step 10</th> 
+          <th>Counterbore(Optional to widen Apex)</th>
+          <th>Step 11</th>
+        </tr>
+        <tr>
+          <td>D-CP-BGN</td>
+          <td>D-20T-BG-6</td>
+          <td>D-20T-BG-8</td>
+          <td>D-20T-BG-9</td>
+          <td>D-20T-BG-10</td>
+          <td>D-30TP-BG</td>
+          <td>D-33TP-BG</td>
+          <td>D-35TP-BG</td>
+          <td>D-40TP-BG</td>
+          <td>D-45TP-BG</td>  
+          <td>D-CB40-BG</td>          
+          <td>Place Implant</td>
+        </tr>
+      </table>        
+        <!-- Table R -->
+        <table id="BAT-11.5 Regular Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-35TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>Place Implant</td>
+          </tr>
+        </table>
+        <!-- Table R1 -->
+        <table id="BAT-11.5 Dense Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+            <th>Counterbore(Optional to widen Apex)</th>
+            <th>Step 12</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-35TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>D-45TP-BG</td>  
+            <td>D-CB40-BG</td>            
+            <td>Place Implant</td>
+          </tr>
+        </table>        
+        <!-- Table S -->
+        <table id="BAT-13 Regular Bone">
+              <tr>
+                <th>Step 1</th>
+                <th>Step 2</th>
+                <th>Step 3</th>
+                <th>Step 4</th>
+                <th>Step 5</th>
+                <th>Step 6</th>
+                <th>Step 7</th>
+                <th>Step 8</th>
+                <th>Step 9</th>
+                <th>Step 10</th>
+                <th>Step 11</th>
+                <th>Step 12</th>
+                <th>Step 13</th>
+              </tr>
+              <tr>
+                <td>D-CP-BGN</td>
+                <td>D-20T-BG-6</td>
+                <td>D-20T-BG-8</td>
+                <td>D-20T-BG-9</td>
+                <td>D-20T-BG-10</td>
+                <td>D-20T-BG-11</td>
+                <td>D-20T-BG-12</td>
+                <td>D-20T-BG-13</td>
+                <td>D-30TP-BG</td>
+                <td>D-33TP-BG</td>
+                <td>D-35TP-BG</td>
+                <td>D-40TP-BG</td>
+                <td>Place Implant</td>
+              </tr>
+        </table>
+        <!-- Table S1 -->
+        <table id="BAT-13 Dense Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+            <th>Step 12</th>
+            <th>Step 13</th>
+            <th>Counterbore(Optional to widen Apex)</th>                        
+            <th>Step 14</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-20T-BG-12</td>
+            <td>D-20T-BG-13</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-35TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>D-45TP-BG</td>  
+            <td>D-CB40-BG</td>            
+            <td>Place Implant</td>
+          </tr>
+    </table>        
+        <!-- Table T -->
+        <table id="BAT-15 Regular Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+            <th>Step 12</th>
+            <th>Step 13</th>
+            <th>Step 14</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-20T-BG-12</td>
+            <td>D-20T-BG-13</td>
+            <td>D-20T-BG-16</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-35TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>Place Implant</td>       
+          </tr>
+        </table>
+        <!-- Table T1 -->
+        <table id="BAT-15 Dense Bone">
+          <tr>
+            <th>Step 1</th>
+            <th>Step 2</th>
+            <th>Step 3</th>
+            <th>Step 4</th>
+            <th>Step 5</th>
+            <th>Step 6</th>
+            <th>Step 7</th>
+            <th>Step 8</th>
+            <th>Step 9</th>
+            <th>Step 10</th>
+            <th>Step 11</th>
+            <th>Step 12</th>
+            <th>Step 13</th>
+            <th>Step 14</th>
+            <th>Counterbore(Optional to widen Apex)</th>                        
+            <th>Step 15</th>
+          </tr>
+          <tr>
+            <td>D-CP-BGN</td>
+            <td>D-20T-BG-6</td>
+            <td>D-20T-BG-8</td>
+            <td>D-20T-BG-9</td>
+            <td>D-20T-BG-10</td>
+            <td>D-20T-BG-11</td>
+            <td>D-20T-BG-12</td>
+            <td>D-20T-BG-13</td>
+            <td>D-20T-BG-16</td>
+            <td>D-30TP-BG</td>
+            <td>D-33TP-BG</td>
+            <td>D-35TP-BG</td>
+            <td>D-40TP-BG</td>
+            <td>D-45TP-BG</td>  
+            <td>D-CB40-BG</td>             
+            <td>Place Implant</td>       
+          </tr>
+        </table>                                                                
+  </div>
+<!-- Image at the bottom -->
+<div id="imageContainer" style="text-align: center;">
+  <!-- Use an online image or a local one -->
+  <img src="Tray.PNG" alt="Farmiliarize with the Kit Tray" style="width: 300px;">
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+  

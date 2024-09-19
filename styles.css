@@ -1,0 +1,48 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+/* Logo container styling */
+#logoContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Style the logo image */
+#logo {
+  width: 80px; /* Adjust the size of the logo (smaller) */
+  height: auto; /* Maintain aspect ratio */
+}
+
+h1 {
+  color: #0f1cdd;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+/* Add table borders */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black; /* Add a solid border around the table */
+  display: none; /* Hide all tables by default */
+}
+
+th, td {
+  border: 1px solid black; /* Add a border around each cell */
+  padding: 8px;
+  text-align: center;
+}
+
+/* Make the table responsive */
+@media screen and (max-width: 600px) {
+  table, th, td {
+    width: 100%;
+    display: block; /* Stack table cells on small screens */
+  }
+}
